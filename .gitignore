@@ -1,0 +1,15 @@
+# Build output
+/out/
+*.class
+
+# Extra JetBrains user-local files not covered by .idea/.gitignore
+/.idea/**/tasks.xml
+/.idea/**/usage.statistics.xml
+/.idea/**/dictionaries/
+/.idea/**/aws.xml
+http-client.private.env.json
+
+# Other editor / OS noise
+/.vscode/
+.DS_Store
+Thumbs.db
