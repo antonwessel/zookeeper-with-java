@@ -1,17 +1,31 @@
-import java.util.List;
-import java.util.Scanner;
-
 void main() {
     Scanner sc = new Scanner(System.in);
 
     List<String> habitats = createHabitats();
 
-    System.out.println("Please enter the number of the habitat you would like to view:");
-    int habitatNumber = sc.nextInt();
-    System.out.println(habitats.get(habitatNumber));
+    while (true) {
+        System.out.println("Please enter the number of the habitat you would like to view (0-5), or type 'exit':");
+        String input = sc.nextLine();
+        if (input.equals("exit")) {
+            System.out.println("See you later!");
+            break;
+        }
 
-    System.out.println("---");
-    System.out.println("You've reached the end of the program. To check another habitat, please restart the watcher.");
+        int habitatIndex;
+        try {
+            habitatIndex = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Enter a number between 0 and 5, or 'exit'.");
+            continue;
+        }
+
+        if (habitatIndex < 0 || habitatIndex >= habitats.size()) {
+            System.out.println("Invalid input. Enter a number between 0 and 5, or 'exit'.");
+            continue;
+        }
+
+        System.out.println(habitats.get(habitatIndex));
+    }
 }
 
 List<String> createHabitats() {
